@@ -68,10 +68,16 @@ color: #000; display: block; margin: 0px 0px 4px 0px; font-weight: 100; }
 .workscont p { margin: 5px 0px 5px 0px; }
 
 .inprice { color: #F8D62A; }
+
+
 .inprice ul { display: inline-block; border: #9baa93 solid 1px; width: 40%; margin: 30px 20px; padding: 20px 20px; text-align: left; }
+
 .inprice h1 { font-size: 150%; margin-top: -53px; position: absolute; padding: 0px 5px; background: url(img/price_back.jpg) top center fixed #4C6B39; }
+
 .inprice li { color: #FFFFFF; font-size: 60%; font-weight: 100; list-style: none inside; margin: 10px 0px; }
-.inprice li:before { content: "— "; }
+
+.inprice li:before { content: "- "; }
+
 .inprice .noli:before { content: ""; }
 .inprice p { display: block; margin: 20px 0px 0px 10px; font-size: 60%; }
 .inprice div { color: #DFF8CD; font-size: 150%; font-weight: 100; margin-top: 20px; }

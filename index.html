@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8" />
 <title>Untitled Document</title>
 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
@@ -12,27 +11,27 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-  // сохраняем высоту шапки
+  // СЃРѕС…СЂР°РЅСЏРµРј РІС‹СЃРѕС‚Сѓ С€Р°РїРєРё
   var headerHeight = $('header').height();
   
-  // прокрутка при клике по пункту меню 
+  // РїСЂРѕРєСЂСѓС‚РєР° РїСЂРё РєР»РёРєРµ РїРѕ РїСѓРЅРєС‚Сѓ РјРµРЅСЋ 
   $("a.header-nav-link").click(function(e) {
     e.preventDefault();
-    // вычисляем смещение от начала документа до нужного раздела
+    // РІС‹С‡РёСЃР»СЏРµРј СЃРјРµС‰РµРЅРёРµ РѕС‚ РЅР°С‡Р°Р»Р° РґРѕРєСѓРјРµРЅС‚Р° РґРѕ РЅСѓР¶РЅРѕРіРѕ СЂР°Р·РґРµР»Р°
     var offsetTop = $("#"+$(this).data("target")).offset().top - headerHeight;
-    // производим прокрутку
+    // РїСЂРѕРёР·РІРѕРґРёРј РїСЂРѕРєСЂСѓС‚РєСѓ
     $('html, body').animate({scrollTop: offsetTop}, 1000);
   });
-  // обработка скроллинга (изменение активного элемента меню)
+  // РѕР±СЂР°Р±РѕС‚РєР° СЃРєСЂРѕР»Р»РёРЅРіР° (РёР·РјРµРЅРµРЅРёРµ Р°РєС‚РёРІРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РјРµРЅСЋ)
   $(document).scroll(function(){
     var offsets = [];
     $('nav a').each(function(index, element){
-      // собираем в массиве offsets смещения разделов относительно начала документа
+      // СЃРѕР±РёСЂР°РµРј РІ РјР°СЃСЃРёРІРµ offsets СЃРјРµС‰РµРЅРёСЏ СЂР°Р·РґРµР»РѕРІ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ РЅР°С‡Р°Р»Р° РґРѕРєСѓРјРµРЅС‚Р°
       offsets.push($("#" + $(element).data('target')).offset().top);
     });
-    // дополняем массив еще одним елементом- высота всего документа
+    // РґРѕРїРѕР»РЅСЏРµРј РјР°СЃСЃРёРІ РµС‰Рµ РѕРґРЅРёРј РµР»РµРјРµРЅС‚РѕРј- РІС‹СЃРѕС‚Р° РІСЃРµРіРѕ РґРѕРєСѓРјРµРЅС‚Р°
     offsets.push($(document).height());
-    // изменяем активный пункт как только область зашла за полэкрана: $(window).height() / 2
+    // РёР·РјРµРЅСЏРµРј Р°РєС‚РёРІРЅС‹Р№ РїСѓРЅРєС‚ РєР°Рє С‚РѕР»СЊРєРѕ РѕР±Р»Р°СЃС‚СЊ Р·Р°С€Р»Р° Р·Р° РїРѕР»СЌРєСЂР°РЅР°: $(window).height() / 2
     var docScroll = $(document).scrollTop() + headerHeight + $(window).height() / 2;
     for (var i = 0; i < offsets.length - 1; i++) {
       if (docScroll >= offsets[i] && docScroll < offsets[i+1]) {
@@ -148,30 +147,30 @@ function slide(id) {
     <div class="hmenuwith">
       <div id="logo" class="logo"><a href="" class="header-nav-link" data-target="main"><img src="content/img/logo2.png" /></a></div>
       <div class="menu_li1">
-        <a href="" class="header-nav-link active" data-target="raboti">Работы</a>
-        <a href="" class="header-nav-link" data-target="onas">О нас</a>
-        <a href="" class="header-nav-link" data-target="price">Цены</a>
-        <a href="" class="header-nav-link" data-target="cont">Контакты</a>
+        <a href="" class="header-nav-link active" data-target="raboti">Р Р°Р±РѕС‚С‹</a>
+        <a href="" class="header-nav-link" data-target="onas">Рћ РЅР°СЃ</a>
+        <a href="" class="header-nav-link" data-target="price">Р¦РµРЅС‹</a>
+        <a href="" class="header-nav-link" data-target="cont">РљРѕРЅС‚Р°РєС‚С‹</a>
         </div>
     </div>
   </div>
 </nav>
     
     <!--<div class="menulinks">
-    <a href="" class="header-nav-link" data-target="main">Услуги</a> 
-    <a href="#">Работы</a> 
-    <a href="#">Работы</a> 
+    <a href="" class="header-nav-link" data-target="main">РЈСЃР»СѓРіРё</a> 
+    <a href="#">Р Р°Р±РѕС‚С‹</a> 
+    <a href="#">Р Р°Р±РѕС‚С‹</a> 
     </div> -->
     
     <!--<nav class="header-nav">
-        <a href="" class="header-nav-link" data-target="main">Главная</a>
-        <a href="" class="header-nav-link" data-target="two">Главная</a>
+        <a href="" class="header-nav-link" data-target="main">Р“Р»Р°РІРЅР°СЏ</a>
+        <a href="" class="header-nav-link" data-target="two">Р“Р»Р°РІРЅР°СЏ</a>
       </nav> -->
 
 <div class="bodyuptext">
 
 <div class="uptext">
-    Мы разрабатываем сайты с учетом всех современных требований веб-дизайна и поисковой оптимизации, поэтому последующее продвижение наших сайтов дает максимальный эффект в привлечении посетителей и клиентов. 
+    РњС‹ СЂР°Р·СЂР°Р±Р°С‚С‹РІР°РµРј СЃР°Р№С‚С‹ СЃ СѓС‡РµС‚РѕРј РІСЃРµС… СЃРѕРІСЂРµРјРµРЅРЅС‹С… С‚СЂРµР±РѕРІР°РЅРёР№ РІРµР±-РґРёР·Р°Р№РЅР° Рё РїРѕРёСЃРєРѕРІРѕР№ РѕРїС‚РёРјРёР·Р°С†РёРё, РїРѕСЌС‚РѕРјСѓ РїРѕСЃР»РµРґСѓСЋС‰РµРµ РїСЂРѕРґРІРёР¶РµРЅРёРµ РЅР°С€РёС… СЃР°Р№С‚РѕРІ РґР°РµС‚ РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЌС„С„РµРєС‚ РІ РїСЂРёРІР»РµС‡РµРЅРёРё РїРѕСЃРµС‚РёС‚РµР»РµР№ Рё РєР»РёРµРЅС‚РѕРІ. 
     
   </div>
   <section id="main"></section>
@@ -179,7 +178,7 @@ function slide(id) {
 
 <section id="raboti"></section>
 <div class="cont1" style="background: rgba(255, 255, 255, 0.95);">
-  <h1 style="background: rgba(255, 255, 255, 0.95); color: #808080; text-shadow: 0 1px 8px #CFCFCF;">Примеры работ</h1>
+  <h1 style="background: rgba(255, 255, 255, 0.95); color: #808080; text-shadow: 0 1px 8px #CFCFCF;">РџСЂРёРјРµСЂС‹ СЂР°Р±РѕС‚</h1>
 <div class="cont2">
 
 <div id="works">
@@ -188,9 +187,9 @@ function slide(id) {
 
  <div class="header" id="1-header">
  <div class="worksdate">05.11.14</div>
-<h2>Вторая версия сайта для компании 
-ООО «КБ «ФИНПРА»</h2>
-<p>В сфере деятельности компании «КБ «Финпра» — современное оборудование и расходные материалы для биотехнологий, биофармацевтики, медицинских учреждений, а также предприятий пищевого и химического производства.</p>
+<h2>Р’С‚РѕСЂР°СЏ РІРµСЂСЃРёСЏ СЃР°Р№С‚Р° РґР»СЏ РєРѕРјРїР°РЅРёРё 
+РћРћРћ В«РљР‘ В«Р¤РРќРџР РђВ»</h2>
+<p>Р’ СЃС„РµСЂРµ РґРµСЏС‚РµР»СЊРЅРѕСЃС‚Рё РєРѕРјРїР°РЅРёРё В«РљР‘ В«Р¤РёРЅРїСЂР°В» вЂ” СЃРѕРІСЂРµРјРµРЅРЅРѕРµ РѕР±РѕСЂСѓРґРѕРІР°РЅРёРµ Рё СЂР°СЃС…РѕРґРЅС‹Рµ РјР°С‚РµСЂРёР°Р»С‹ РґР»СЏ Р±РёРѕС‚РµС…РЅРѕР»РѕРіРёР№, Р±РёРѕС„Р°СЂРјР°С†РµРІС‚РёРєРё, РјРµРґРёС†РёРЅСЃРєРёС… СѓС‡СЂРµР¶РґРµРЅРёР№, Р° С‚Р°РєР¶Рµ РїСЂРµРґРїСЂРёСЏС‚РёР№ РїРёС‰РµРІРѕРіРѕ Рё С…РёРјРёС‡РµСЃРєРѕРіРѕ РїСЂРѕРёР·РІРѕРґСЃС‚РІР°.</p>
 
 
 <div class="workscont">
@@ -201,9 +200,9 @@ function slide(id) {
 
 <div class="header" id="3-header">
  <div class="worksdate">11.06.13</div>
-<h2>Сайт для логистической компании «Alianselogistic»</h2>
+<h2>РЎР°Р№С‚ РґР»СЏ Р»РѕРіРёСЃС‚РёС‡РµСЃРєРѕР№ РєРѕРјРїР°РЅРёРё В«AlianselogisticВ»</h2>
 <div class="workscont">
-<p>Компания ООО «Альянс» осуществляет перевозки по России всеми видами транспорта и гарантирует доставку Вашего груза в целости и сохранности.</p>
+<p>РљРѕРјРїР°РЅРёСЏ РћРћРћ В«РђР»СЊСЏРЅСЃВ» РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚ РїРµСЂРµРІРѕР·РєРё РїРѕ Р РѕСЃСЃРёРё РІСЃРµРјРё РІРёРґР°РјРё С‚СЂР°РЅСЃРїРѕСЂС‚Р° Рё РіР°СЂР°РЅС‚РёСЂСѓРµС‚ РґРѕСЃС‚Р°РІРєСѓ Р’Р°С€РµРіРѕ РіСЂСѓР·Р° РІ С†РµР»РѕСЃС‚Рё Рё СЃРѕС…СЂР°РЅРЅРѕСЃС‚Рё.</p>
  <div class="content" id="3-content">
  <div class="links"><span>http://</span><a href="http://alianselogistic.wdac.ru" target="_blank">alianselogistic.wdac.ru</a></div>
  <img src="content/img/sites/alianselogistic1.jpg" />
@@ -211,9 +210,9 @@ function slide(id) {
  
 <div class="header" id="2-header">
  <div class="worksdate">17.04.13</div>
-<h2>Сайт для компании «Cerama Best»</h2>
+<h2>РЎР°Р№С‚ РґР»СЏ РєРѕРјРїР°РЅРёРё В«Cerama BestВ»</h2>
 <div class="workscont">
-<p>Компания «Cerama Best» является официальным дистрибьютором Louis Valentino Porcellanato, одного из крупнейших азиатских экспортеров плитки в Европу и ведущего экспортера керамогранита в Азию и страны западной Еропы.</p>
+<p>РљРѕРјРїР°РЅРёСЏ В«Cerama BestВ» СЏРІР»СЏРµС‚СЃСЏ РѕС„РёС†РёР°Р»СЊРЅС‹Рј РґРёСЃС‚СЂРёР±СЊСЋС‚РѕСЂРѕРј Louis Valentino Porcellanato, РѕРґРЅРѕРіРѕ РёР· РєСЂСѓРїРЅРµР№С€РёС… Р°Р·РёР°С‚СЃРєРёС… СЌРєСЃРїРѕСЂС‚РµСЂРѕРІ РїР»РёС‚РєРё РІ Р•РІСЂРѕРїСѓ Рё РІРµРґСѓС‰РµРіРѕ СЌРєСЃРїРѕСЂС‚РµСЂР° РєРµСЂР°РјРѕРіСЂР°РЅРёС‚Р° РІ РђР·РёСЋ Рё СЃС‚СЂР°РЅС‹ Р·Р°РїР°РґРЅРѕР№ Р•СЂРѕРїС‹.</p>
  <div class="content" id="2-content">
 <div class="links"><span>http://</span><a href="http://ceramabest.ru" target="_blank">ceramabest.ru</a></div>
 <img src="content/img/ceramabest1.jpg" /><br />
@@ -221,38 +220,38 @@ function slide(id) {
 
 <div class="header" id="russtroy-header">
  <div class="worksdate">20.02.13</div>
-<h2>Сайт для строительной компании «РУССТРОЙ»</h2>
+<h2>РЎР°Р№С‚ РґР»СЏ СЃС‚СЂРѕРёС‚РµР»СЊРЅРѕР№ РєРѕРјРїР°РЅРёРё В«Р РЈРЎРЎРўР РћР™В»</h2>
 <div class="workscont">
-<p>РУССТРОЙ &#8212; молодая и современная строительная компания.</p>
+<p>Р РЈРЎРЎРўР РћР™ &#8212; РјРѕР»РѕРґР°СЏ Рё СЃРѕРІСЂРµРјРµРЅРЅР°СЏ СЃС‚СЂРѕРёС‚РµР»СЊРЅР°СЏ РєРѕРјРїР°РЅРёСЏ.</p>
  <div class="content" id="russtroy-content">
 <div class="links"><span>http://</span><a href="http://russtroy.ru.com" target="_blank">russtroy.ru.com</a></div>
 <img src="content/img/sites/russtroy1.jpg" /></div></div></div>
 
 <div class="header" id="hinkali-header">
  <div class="worksdate">08.02.13</div>
-<h2>Сайт ресторана «Дом Хинкали»</h2>
+<h2>РЎР°Р№С‚ СЂРµСЃС‚РѕСЂР°РЅР° В«Р”РѕРј РҐРёРЅРєР°Р»РёВ»</h2>
 <div class="workscont">
-<p>Дом Хинкали &#8212; место, где вам рады всегда! <br />
-  На сайте вы сможете ознакомиться со всем многообразием настоящей грузинской кухни и узнать о фирменных блюдах от шеф-повара, блюдах на мангале и кеци и о разнообразных десертах.</p>
+<p>Р”РѕРј РҐРёРЅРєР°Р»Рё &#8212; РјРµСЃС‚Рѕ, РіРґРµ РІР°Рј СЂР°РґС‹ РІСЃРµРіРґР°! <br />
+  РќР° СЃР°Р№С‚Рµ РІС‹ СЃРјРѕР¶РµС‚Рµ РѕР·РЅР°РєРѕРјРёС‚СЊСЃСЏ СЃРѕ РІСЃРµРј РјРЅРѕРіРѕРѕР±СЂР°Р·РёРµРј РЅР°СЃС‚РѕСЏС‰РµР№ РіСЂСѓР·РёРЅСЃРєРѕР№ РєСѓС…РЅРё Рё СѓР·РЅР°С‚СЊ Рѕ С„РёСЂРјРµРЅРЅС‹С… Р±Р»СЋРґР°С… РѕС‚ С€РµС„-РїРѕРІР°СЂР°, Р±Р»СЋРґР°С… РЅР° РјР°РЅРіР°Р»Рµ Рё РєРµС†Рё Рё Рѕ СЂР°Р·РЅРѕРѕР±СЂР°Р·РЅС‹С… РґРµСЃРµСЂС‚Р°С….</p>
  <div class="content" id="hinkali-content">
 <div class="links"><span>http://</span><a href="http://domkhinkali.ru" target="_blank">domkhinkali.ru</a></div>
 <img src="content/img/sites/hinkali1.jpg" /> </div></div></div>
 
 <div class="header" id="aurelia-header">
  <div class="worksdate">08.02.13</div>
-<h2>Сайт для компании «Aurelia»</h2>
+<h2>РЎР°Р№С‚ РґР»СЏ РєРѕРјРїР°РЅРёРё В«AureliaВ»</h2>
 <div class="workscont">
-<p> К настоящему времени компания «АУРЕЛИЯ» является хорошо известным на российском рынке производителем декоративных лаков для ногтей и средств по уходу за натуральными ногтями.</p>
+<p> Рљ РЅР°СЃС‚РѕСЏС‰РµРјСѓ РІСЂРµРјРµРЅРё РєРѕРјРїР°РЅРёСЏ В«РђРЈР Р•Р›РРЇВ» СЏРІР»СЏРµС‚СЃСЏ С…РѕСЂРѕС€Рѕ РёР·РІРµСЃС‚РЅС‹Рј РЅР° СЂРѕСЃСЃРёР№СЃРєРѕРј СЂС‹РЅРєРµ РїСЂРѕРёР·РІРѕРґРёС‚РµР»РµРј РґРµРєРѕСЂР°С‚РёРІРЅС‹С… Р»Р°РєРѕРІ РґР»СЏ РЅРѕРіС‚РµР№ Рё СЃСЂРµРґСЃС‚РІ РїРѕ СѓС…РѕРґСѓ Р·Р° РЅР°С‚СѓСЂР°Р»СЊРЅС‹РјРё РЅРѕРіС‚СЏРјРё.</p>
  <div class="content" id="aurelia-content">
- <p> Собственные торговые марки компании хорошо известны и любимы потребителем. В ассортиментном активе компании более 100 средств по уходу за натуральными ногтями и более 600 оттенков декоративных лаков.</p>
+ <p> РЎРѕР±СЃС‚РІРµРЅРЅС‹Рµ С‚РѕСЂРіРѕРІС‹Рµ РјР°СЂРєРё РєРѕРјРїР°РЅРёРё С…РѕСЂРѕС€Рѕ РёР·РІРµСЃС‚РЅС‹ Рё Р»СЋР±РёРјС‹ РїРѕС‚СЂРµР±РёС‚РµР»РµРј. Р’ Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚РЅРѕРј Р°РєС‚РёРІРµ РєРѕРјРїР°РЅРёРё Р±РѕР»РµРµ 100 СЃСЂРµРґСЃС‚РІ РїРѕ СѓС…РѕРґСѓ Р·Р° РЅР°С‚СѓСЂР°Р»СЊРЅС‹РјРё РЅРѕРіС‚СЏРјРё Рё Р±РѕР»РµРµ 600 РѕС‚С‚РµРЅРєРѕРІ РґРµРєРѕСЂР°С‚РёРІРЅС‹С… Р»Р°РєРѕРІ.</p>
 <div class="links"><span>http://</span><a href="http://www.aurelia-laki.ru" target="_blank">aurelia-laki.ru</a></div>
 <img src="content/img/sites/aurelia_laki.jpg" /> </div></div></div>
 
 <div class="header" id="emvann-header">
  <div class="worksdate">08.02.13</div>
-<h2>Сайт для компании «Emvann»</h2>
+<h2>РЎР°Р№С‚ РґР»СЏ РєРѕРјРїР°РЅРёРё В«EmvannВ»</h2>
 <div class="workscont">
-<p>Сайт по эмалировке ванн emvann.ru включает в себя все самые модные направления в области разработки сайтов. В частности сайт имеет современную структуру с расположенной в центре слайд галерей.</p>
+<p>РЎР°Р№С‚ РїРѕ СЌРјР°Р»РёСЂРѕРІРєРµ РІР°РЅРЅ emvann.ru РІРєР»СЋС‡Р°РµС‚ РІ СЃРµР±СЏ РІСЃРµ СЃР°РјС‹Рµ РјРѕРґРЅС‹Рµ РЅР°РїСЂР°РІР»РµРЅРёСЏ РІ РѕР±Р»Р°СЃС‚Рё СЂР°Р·СЂР°Р±РѕС‚РєРё СЃР°Р№С‚РѕРІ. Р’ С‡Р°СЃС‚РЅРѕСЃС‚Рё СЃР°Р№С‚ РёРјРµРµС‚ СЃРѕРІСЂРµРјРµРЅРЅСѓСЋ СЃС‚СЂСѓРєС‚СѓСЂСѓ СЃ СЂР°СЃРїРѕР»РѕР¶РµРЅРЅРѕР№ РІ С†РµРЅС‚СЂРµ СЃР»Р°Р№Рґ РіР°Р»РµСЂРµР№.</p>
  <div class="content" id="emvann-content">
  
 <div class="links"><span>http://</span><a href="http://emvann.ru" target="_blank">emvann.ru</a></div>
@@ -260,9 +259,9 @@ function slide(id) {
 
 <div class="header" id="moonshine_shop-header">
  <div class="worksdate">08.02.13</div>
-<h2>Интернет-магазина одежды «Moonshine-shop»</h2>
+<h2>РРЅС‚РµСЂРЅРµС‚-РјР°РіР°Р·РёРЅР° РѕРґРµР¶РґС‹ В«Moonshine-shopВ»</h2>
 <div class="workscont">
-<p>Интернет-магазин moonshine-shop.ru имеет все современные функции в области разработки сайтов. Выполнен в чёрно-белых тонах символизирующих сияние луны.</p>
+<p>РРЅС‚РµСЂРЅРµС‚-РјР°РіР°Р·РёРЅ moonshine-shop.ru РёРјРµРµС‚ РІСЃРµ СЃРѕРІСЂРµРјРµРЅРЅС‹Рµ С„СѓРЅРєС†РёРё РІ РѕР±Р»Р°СЃС‚Рё СЂР°Р·СЂР°Р±РѕС‚РєРё СЃР°Р№С‚РѕРІ. Р’С‹РїРѕР»РЅРµРЅ РІ С‡С‘СЂРЅРѕ-Р±РµР»С‹С… С‚РѕРЅР°С… СЃРёРјРІРѕР»РёР·РёСЂСѓСЋС‰РёС… СЃРёСЏРЅРёРµ Р»СѓРЅС‹.</p>
  <div class="content" id="moonshine_shop-content">
  
 <div class="links"><span>http://</span><a href="http://moonshine-shop.wdac.ru" target="_blank">moonshine-shop.wdac.ru</a></div>
@@ -270,15 +269,15 @@ function slide(id) {
 
 <div class="header" id="elit_vine-header">
  <div class="worksdate">08.02.13</div>
-<h2>Интернет-магазина элитных вин</h2>
+<h2>РРЅС‚РµСЂРЅРµС‚-РјР°РіР°Р·РёРЅР° СЌР»РёС‚РЅС‹С… РІРёРЅ</h2>
 <div class="workscont">
-<p>Интренет-магазин для салона элитных вин «Сигары, Табак, Элитные вина» расположенный в центре Москвы предлагает своим клиентам широкий ассортимент алкогольный продукции известных мировых брэндов.</p>
+<p>РРЅС‚СЂРµРЅРµС‚-РјР°РіР°Р·РёРЅ РґР»СЏ СЃР°Р»РѕРЅР° СЌР»РёС‚РЅС‹С… РІРёРЅ В«РЎРёРіР°СЂС‹, РўР°Р±Р°Рє, Р­Р»РёС‚РЅС‹Рµ РІРёРЅР°В» СЂР°СЃРїРѕР»РѕР¶РµРЅРЅС‹Р№ РІ С†РµРЅС‚СЂРµ РњРѕСЃРєРІС‹ РїСЂРµРґР»Р°РіР°РµС‚ СЃРІРѕРёРј РєР»РёРµРЅС‚Р°Рј С€РёСЂРѕРєРёР№ Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚ Р°Р»РєРѕРіРѕР»СЊРЅС‹Р№ РїСЂРѕРґСѓРєС†РёРё РёР·РІРµСЃС‚РЅС‹С… РјРёСЂРѕРІС‹С… Р±СЂСЌРЅРґРѕРІ.</p>
  <div class="content" id="elit_vine-content">
  
 <div class="links"><span>http://</span><a href="http://elit-vino.wdac.ru" target="_blank">elit-vino.ru</a></div>
 <img src="content/img/sites/vino1000.jpg" /> </div></div></div>
 
-<h1 style="margin: 0 auto; display: block;"><a href="http://wdac.ru/works/" target="_blank">Смотреть все работы</a></h1>
+<h1 style="margin: 0 auto; display: block;"><a href="http://wdac.ru/works/" target="_blank">РЎРјРѕС‚СЂРµС‚СЊ РІСЃРµ СЂР°Р±РѕС‚С‹</a></h1>
 
 </div>
 
@@ -300,11 +299,11 @@ background-attachment: fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
-background-size: cover;">О нас</h1>
+background-size: cover;">Рћ РЅР°СЃ</h1>
 <div class="cont2"><img src="content/img/o_nas100.png" width="546" /><br />
-  Мы является небольшой, но профессиональной группой разработчиков, предоставляющих услуги в области создания сайтов и систем администрирования. <br />
+  РњС‹ СЏРІР»СЏРµС‚СЃСЏ РЅРµР±РѕР»СЊС€РѕР№, РЅРѕ РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕР№ РіСЂСѓРїРїРѕР№ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєРѕРІ, РїСЂРµРґРѕСЃС‚Р°РІР»СЏСЋС‰РёС… СѓСЃР»СѓРіРё РІ РѕР±Р»Р°СЃС‚Рё СЃРѕР·РґР°РЅРёСЏ СЃР°Р№С‚РѕРІ Рё СЃРёСЃС‚РµРј Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ. <br />
   <br />
-  Наш опыт работы в области интернет разработок и графического дизайна составляет более 5 лет, а наши цены доступны практически любой компании, желающей иметь свое интернет представительство или рекламировать свои товары в интернете.
+  РќР°С€ РѕРїС‹С‚ СЂР°Р±РѕС‚С‹ РІ РѕР±Р»Р°СЃС‚Рё РёРЅС‚РµСЂРЅРµС‚ СЂР°Р·СЂР°Р±РѕС‚РѕРє Рё РіСЂР°С„РёС‡РµСЃРєРѕРіРѕ РґРёР·Р°Р№РЅР° СЃРѕСЃС‚Р°РІР»СЏРµС‚ Р±РѕР»РµРµ 5 Р»РµС‚, Р° РЅР°С€Рё С†РµРЅС‹ РґРѕСЃС‚СѓРїРЅС‹ РїСЂР°РєС‚РёС‡РµСЃРєРё Р»СЋР±РѕР№ РєРѕРјРїР°РЅРёРё, Р¶РµР»Р°СЋС‰РµР№ РёРјРµС‚СЊ СЃРІРѕРµ РёРЅС‚РµСЂРЅРµС‚ РїСЂРµРґСЃС‚Р°РІРёС‚РµР»СЊСЃС‚РІРѕ РёР»Рё СЂРµРєР»Р°РјРёСЂРѕРІР°С‚СЊ СЃРІРѕРё С‚РѕРІР°СЂС‹ РІ РёРЅС‚РµСЂРЅРµС‚Рµ.
   <br /><br />
   <section id="price"></section>
 </div>
@@ -313,101 +312,101 @@ background-size: cover;">О нас</h1>
 
 <div class="cont1" style="background-color: #4C6B39; background: url(content/img/price_back.jpg) top center fixed;">
 <h1 style="background-color: #4C6B39; color: #FFF; 
-background: url(content/img/price_back.jpg) center top fixed;">Прайс</h1>
+background: url(content/img/price_back.jpg) center top fixed;">РџСЂР°Р№СЃ</h1>
 <div class="cont2"> 
 <div class="inprice">
 <ul>
-<h1>МиниСайт</h1>
-<li>Шаблонный дизайн</li>
-<li>Верстка сайта</li>
-<li>5 внутренних страниц</li>
+<h1>РњРёРЅРёРЎР°Р№С‚</h1>
+<li>РЁР°Р±Р»РѕРЅРЅС‹Р№ РґРёР·Р°Р№РЅ</li>
+<li>Р’РµСЂСЃС‚РєР° СЃР°Р№С‚Р°</li>
+<li>5 РІРЅСѓС‚СЂРµРЅРЅРёС… СЃС‚СЂР°РЅРёС†</li>
 <li class="noli">&nbsp;</li>
-<div>9 000 руб.</div>
+<div>9 000 СЂСѓР±.</div>
 </ul>
 <ul>
-<h1>Сайт</h1>
-<li>Шаблонный дизайн</li>
-<li>Каталога продукции</li>
-<li>Система управления сайтом (CMS)</li>
-<li>Оптимизация сайта</li>
-<div>14 000 руб.</div>
+<h1>РЎР°Р№С‚</h1>
+<li>РЁР°Р±Р»РѕРЅРЅС‹Р№ РґРёР·Р°Р№РЅ</li>
+<li>РљР°С‚Р°Р»РѕРіР° РїСЂРѕРґСѓРєС†РёРё</li>
+<li>РЎРёСЃС‚РµРјР° СѓРїСЂР°РІР»РµРЅРёСЏ СЃР°Р№С‚РѕРј (CMS)</li>
+<li>РћРїС‚РёРјРёР·Р°С†РёСЏ СЃР°Р№С‚Р°</li>
+<div>14 000 СЂСѓР±.</div>
 </ul>
 <ul>
-<h1>БигСайт</h1>
-<li>Индивидуальный дизайн</li>
-<li>Адаптивная верстка</li>
-<li>Каталога продукции</li>
-<li>Система управления сайтом (CMS)</li>
-<li>Оптимизация сайта</li>
-<li>Регистрация домена и хостинга</li>
-<li>Продвижение сайта (1 месяц)</li>
-<li>Бесплатная поддержка (1 месяц)</li>
+<h1>Р‘РёРіРЎР°Р№С‚</h1>
+<li>РРЅРґРёРІРёРґСѓР°Р»СЊРЅС‹Р№ РґРёР·Р°Р№РЅ</li>
+<li>РђРґР°РїС‚РёРІРЅР°СЏ РІРµСЂСЃС‚РєР°</li>
+<li>РљР°С‚Р°Р»РѕРіР° РїСЂРѕРґСѓРєС†РёРё</li>
+<li>РЎРёСЃС‚РµРјР° СѓРїСЂР°РІР»РµРЅРёСЏ СЃР°Р№С‚РѕРј (CMS)</li>
+<li>РћРїС‚РёРјРёР·Р°С†РёСЏ СЃР°Р№С‚Р°</li>
+<li>Р РµРіРёСЃС‚СЂР°С†РёСЏ РґРѕРјРµРЅР° Рё С…РѕСЃС‚РёРЅРіР°</li>
+<li>РџСЂРѕРґРІРёР¶РµРЅРёРµ СЃР°Р№С‚Р° (1 РјРµСЃСЏС†)</li>
+<li>Р‘РµСЃРїР»Р°С‚РЅР°СЏ РїРѕРґРґРµСЂР¶РєР° (1 РјРµСЃСЏС†)</li>
 <li class="noli">&nbsp;</li>
-<div>31 000 руб.</div>
+<div>31 000 СЂСѓР±.</div>
 </ul><ul>
-<h1>КингСайт</h1>
-<li>Индивидуальный дизайн (премиум)</li>
-<li>Адаптивная верстка</li>
-<li>Каталога продукции</li>
-<li>Система управления сайтом (CMS)</li>
-<li>Оптимизация сайта</li>
-<li>Регистрация домена и хостинга</li>
-<li>Подключение интернет-магазина</li>
-<li>Продвижение сайта (3 месяца)</li>
-<li>Бесплатная поддержка (3 месяца)</li>
-<div>52 000 руб.</div>
+<h1>РљРёРЅРіРЎР°Р№С‚</h1>
+<li>РРЅРґРёРІРёРґСѓР°Р»СЊРЅС‹Р№ РґРёР·Р°Р№РЅ (РїСЂРµРјРёСѓРј)</li>
+<li>РђРґР°РїС‚РёРІРЅР°СЏ РІРµСЂСЃС‚РєР°</li>
+<li>РљР°С‚Р°Р»РѕРіР° РїСЂРѕРґСѓРєС†РёРё</li>
+<li>РЎРёСЃС‚РµРјР° СѓРїСЂР°РІР»РµРЅРёСЏ СЃР°Р№С‚РѕРј (CMS)</li>
+<li>РћРїС‚РёРјРёР·Р°С†РёСЏ СЃР°Р№С‚Р°</li>
+<li>Р РµРіРёСЃС‚СЂР°С†РёСЏ РґРѕРјРµРЅР° Рё С…РѕСЃС‚РёРЅРіР°</li>
+<li>РџРѕРґРєР»СЋС‡РµРЅРёРµ РёРЅС‚РµСЂРЅРµС‚-РјР°РіР°Р·РёРЅР°</li>
+<li>РџСЂРѕРґРІРёР¶РµРЅРёРµ СЃР°Р№С‚Р° (3 РјРµСЃСЏС†Р°)</li>
+<li>Р‘РµСЃРїР»Р°С‚РЅР°СЏ РїРѕРґРґРµСЂР¶РєР° (3 РјРµСЃСЏС†Р°)</li>
+<div>52 000 СЂСѓР±.</div>
 </ul>
 <ul style="width: 89%;">
-<h1>МультиСайт</h1>
-<p>Вы сами добавляете/убираете необходимые компоненты для Вашего сайта:</p>
+<h1>РњСѓР»СЊС‚РёРЎР°Р№С‚</h1>
+<p>Р’С‹ СЃР°РјРё РґРѕР±Р°РІР»СЏРµС‚Рµ/СѓР±РёСЂР°РµС‚Рµ РЅРµРѕР±С…РѕРґРёРјС‹Рµ РєРѕРјРїРѕРЅРµРЅС‚С‹ РґР»СЏ Р’Р°С€РµРіРѕ СЃР°Р№С‚Р°:</p>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="33%" valign="top">
     
     <label class="myCheckbox">
-    <input type="checkbox" name="test"/><span></span><p>Шаблонный дизайн</p>
+    <input type="checkbox" name="test"/><span></span><p>РЁР°Р±Р»РѕРЅРЅС‹Р№ РґРёР·Р°Р№РЅ</p>
 </label>
     
    <label class="myCheckbox">
-    <input type="checkbox" name="test"/><span></span><p>Индивидуальный дизайн</p>
+    <input type="checkbox" name="test"/><span></span><p>РРЅРґРёРІРёРґСѓР°Р»СЊРЅС‹Р№ РґРёР·Р°Р№РЅ</p>
 </label>
 
 <label class="myCheckbox">
-    <input type="checkbox" name="test"/><span></span><p>Верстка сайта</p>
+    <input type="checkbox" name="test"/><span></span><p>Р’РµСЂСЃС‚РєР° СЃР°Р№С‚Р°</p>
 </label>
 
 <label class="myCheckbox">
-    <input type="checkbox" name="test"/><span></span><p>Адаптивная верстка</p>
+    <input type="checkbox" name="test"/><span></span><p>РђРґР°РїС‚РёРІРЅР°СЏ РІРµСЂСЃС‚РєР°</p>
 </label>
 
 <label class="myCheckbox">
-    <input type="checkbox" name="test"/><span></span><p>Каталог продукции</p>
+    <input type="checkbox" name="test"/><span></span><p>РљР°С‚Р°Р»РѕРі РїСЂРѕРґСѓРєС†РёРё</p>
 </label>
 
     </td>
     <td width="33%" valign="top">
     
     <label class="myCheckbox">
-    <input type="checkbox" name="test"/><span></span><p>Система управления сайтом (CMS)</p>
+    <input type="checkbox" name="test"/><span></span><p>РЎРёСЃС‚РµРјР° СѓРїСЂР°РІР»РµРЅРёСЏ СЃР°Р№С‚РѕРј (CMS)</p>
 </label>
 
 <label class="myCheckbox">
-    <input type="checkbox" name="test"/><span></span><p>Оптимизация сайта</p>
+    <input type="checkbox" name="test"/><span></span><p>РћРїС‚РёРјРёР·Р°С†РёСЏ СЃР°Р№С‚Р°</p>
 </label>  
     
 <label class="myCheckbox">
     <input type="checkbox" name="test"/><span></span>
-    <p>Регистрация домена</p>
+    <p>Р РµРіРёСЃС‚СЂР°С†РёСЏ РґРѕРјРµРЅР°</p>
 </label>
 
 <label class="myCheckbox">
     <input type="checkbox" name="test"/><span></span>
-    <p>Регистрация хостинга</p>
+    <p>Р РµРіРёСЃС‚СЂР°С†РёСЏ С…РѕСЃС‚РёРЅРіР°</p>
 </label>
 
 
 <label class="myCheckbox">
-    <input type="checkbox" name="test"/><span></span><p>Подключение интернет-магазина</p>
+    <input type="checkbox" name="test"/><span></span><p>РџРѕРґРєР»СЋС‡РµРЅРёРµ РёРЅС‚РµСЂРЅРµС‚-РјР°РіР°Р·РёРЅР°</p>
 </label>
 
 
@@ -416,21 +415,21 @@ background: url(content/img/price_back.jpg) center top fixed;">Прайс</h1>
 
 <label class="myCheckbox">
     <input type="checkbox" name="test"/><span></span>
-    <p>Продвижение сайта <nobr>(1 месяц)</nobr></p>
+    <p>РџСЂРѕРґРІРёР¶РµРЅРёРµ СЃР°Р№С‚Р° <nobr>(1 РјРµСЃСЏС†)</nobr></p>
 </label>
 
 <label class="myCheckbox">
     <input type="checkbox" name="test"/><span></span>
-    <p>Продвижение сайта <nobr>(3 месяца)</nobr></p>
+    <p>РџСЂРѕРґРІРёР¶РµРЅРёРµ СЃР°Р№С‚Р° <nobr>(3 РјРµСЃСЏС†Р°)</nobr></p>
 </label>
 
 <label class="myCheckbox">
     <input type="checkbox" name="test"/><span></span>
-    <p>Поддержка сайта <nobr>(1 месяц)</nobr></p>
+    <p>РџРѕРґРґРµСЂР¶РєР° СЃР°Р№С‚Р° <nobr>(1 РјРµСЃСЏС†)</nobr></p>
 </label>
 
 <label class="myCheckbox">
-    <input type="checkbox" name="test"/><span></span><p>Поддержка сайта <nobr>(3 месяца)</nobr></p>
+    <input type="checkbox" name="test"/><span></span><p>РџРѕРґРґРµСЂР¶РєР° СЃР°Р№С‚Р° <nobr>(3 РјРµСЃСЏС†Р°)</nobr></p>
 </label>
 
     </td>
@@ -438,7 +437,7 @@ background: url(content/img/price_back.jpg) center top fixed;">Прайс</h1>
 </table>
 
 
-<div>20 000 руб.</div>
+<div>20 000 СЂСѓР±.</div>
 </ul>
 </div>
 
@@ -449,23 +448,23 @@ background: url(content/img/price_back.jpg) center top fixed;">Прайс</h1>
 
 
 <div class="cont1" style="background: url(content/img/back_cont.jpg) center top no-repeat #F5532F;">
-<h1 style="background-color: #F5532F; color: #ffffff;">Контакты</h1>
+<h1 style="background-color: #F5532F; color: #ffffff;">РљРѕРЅС‚Р°РєС‚С‹</h1>
 <div class="cont2">
 <div class="formtext">
-<p>Задавайте любые интересующие вопросы:</p>
-<p>Телефон: +7 (495) 794-47-23 | Почта: <a href="#" style="color: #FFF;">sites@wdac.ru</a></p>
+<p>Р—Р°РґР°РІР°Р№С‚Рµ Р»СЋР±С‹Рµ РёРЅС‚РµСЂРµСЃСѓСЋС‰РёРµ РІРѕРїСЂРѕСЃС‹:</p>
+<p>РўРµР»РµС„РѕРЅ: +7 (495) 794-47-23 | РџРѕС‡С‚Р°: <a href="#" style="color: #FFF;">sites@wdac.ru</a></p>
 </div>
 <br />
 <form action="" method="get">
 <input name="" type="text" / class="form1" placeholder="E-Mail">
 <br /><br />
-<textarea name="textarea" rows="7" class="form1" placeholder="Спрашивайте"></textarea>
+<textarea name="textarea" rows="7" class="form1" placeholder="РЎРїСЂР°С€РёРІР°Р№С‚Рµ"></textarea>
 
-<a href="#" class="button8">Отправить</a>
+<a href="#" class="button8">РћС‚РїСЂР°РІРёС‚СЊ</a>
 </form>
 
 </div>
-<div id="footer">© 2009-2014 WebDesignArtComp.  Разработка сайтов, продвижение сайтов, система управления сайтом.</div>
+<div id="footer">В© 2009-2014 WebDesignArtComp.  Р Р°Р·СЂР°Р±РѕС‚РєР° СЃР°Р№С‚РѕРІ, РїСЂРѕРґРІРёР¶РµРЅРёРµ СЃР°Р№С‚РѕРІ, СЃРёСЃС‚РµРјР° СѓРїСЂР°РІР»РµРЅРёСЏ СЃР°Р№С‚РѕРј.</div>
 </div>
 
 
